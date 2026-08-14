@@ -1,1 +1,150 @@
-# live-welcome-bot
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LIVE Welcome Bot</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:#0f1115;
+  color:white;
+}
+
+.container{
+  max-width:500px;
+  margin:40px auto;
+  padding:20px;
+}
+
+h1{
+  text-align:center;
+}
+
+.card{
+  background:#191c24;
+  padding:20px;
+  border-radius:15px;
+  margin-top:20px;
+}
+
+label{
+  display:block;
+  margin-top:15px;
+  margin-bottom:7px;
+}
+
+input{
+  width:100%;
+  box-sizing:border-box;
+  padding:14px;
+  border-radius:10px;
+  border:1px solid #444;
+  background:#0f1115;
+  color:white;
+}
+
+button{
+  width:100%;
+  padding:14px;
+  margin-top:15px;
+  border:0;
+  border-radius:10px;
+  font-size:16px;
+  font-weight:bold;
+}
+
+.start{
+  background:#19c37d;
+  color:white;
+}
+
+.stop{
+  background:#e5484d;
+  color:white;
+}
+
+.status{
+  text-align:center;
+  padding:12px;
+  border-radius:10px;
+  background:#292d38;
+  margin-top:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🤖 LIVE Welcome Bot</h1>
+
+<div class="card">
+
+<label>📱 TikTok LIVE Link</label>
+
+<input
+id="liveLink"
+type="text"
+placeholder="https://www.tiktok.com/@username/live">
+
+<label>💬 Welcome Message</label>
+
+<input
+id="welcome"
+type="text"
+value="Welcome @username ❤️🔥">
+
+<div class="status">
+Status: <b id="status">🔴 OFF</b>
+</div>
+
+<button class="start" onclick="startBot()">
+▶️ START BOT
+</button>
+
+<button class="stop" onclick="stopBot()">
+⛔ STOP BOT
+</button>
+
+</div>
+</div>
+
+<script>
+
+let running = false;
+
+function startBot(){
+
+  const link = document.getElementById("liveLink").value;
+
+  if(!link){
+    alert("Please enter TikTok LIVE link");
+    return;
+  }
+
+  running = true;
+
+  document.getElementById("status").innerText = "🟢 ON";
+
+  alert("Bot started!");
+
+}
+
+function stopBot(){
+
+  running = false;
+
+  document.getElementById("status").innerText = "🔴 OFF";
+
+  alert("Bot stopped!");
+
+}
+
+</script>
+
+</body>
+</html>
